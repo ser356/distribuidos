@@ -24,7 +24,7 @@ public class Race {
      */
 	public static void main(String[] args) {	
 		 try {
-	            restartRace(IP);
+	            restartRace();
 
 	            ArrayList<Athlete> athletes = new ArrayList<>(); 
 
@@ -49,10 +49,9 @@ public class Race {
 	
 	/**
      * Restarts the race by sending an HTTP GET request to the race server.
-     * @param IP The IP address of the race server.
      * @throws Exception If an error occurs during the HTTP request.
      */
-	private static void restartRace(String IP) throws Exception {
+	private static void restartRace() throws Exception {
 		URL urlRestart = new URL ("http://" + IP + "/Carrera100REST/Carrera100/reinicio");
 		HttpURLConnection connectionRestart = (HttpURLConnection) urlRestart.openConnection();
         connectionRestart.setRequestMethod("GET");
