@@ -9,8 +9,12 @@ import java.util.stream.Collectors;
 
 /**
  * Represents an athlete participating in a race.
+ * 
+ * @author
+ * Sergio García
+ * Andrés Blázquez
  */
-public class Athlete {
+public class Athlete extends Thread {
 	String IP;
 	String number;
 	String time;
