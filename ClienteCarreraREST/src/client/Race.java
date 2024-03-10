@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Race {
 	
 	private static final int NUM_ATHLETES = 4;	// Number of athletes participating in the race
-	private static final String IP = "";		// IP address of the race server
+	private static final String IP = "localhost:8080";		// IP address of the race server
 	
 	/**
      * Main method to initiate the race scenario.
@@ -24,17 +24,16 @@ public class Race {
      */
 	public static void main(String[] args) {	
 		 try {
-	            restartRace();
+	            restartRace(IP);
 
-	            ArrayList<Athlete> athletes = new ArrayList<>(); 
+	            ArrayList<Athlete> athletes = new ArrayList<Athlete>(); 
 
 	            for (int i = 0; i < NUM_ATHLETES; i++) {
-	                Athlete athlete = new Athlete(IP, "" + i);
-	                athletes.add(athlete);
+	                athletes.add(new Athlete(IP, "" + i));
 	            }
 
 	            for (int i = 0; i < NUM_ATHLETES; i++) {
-	                athletes.get(i).start();
+	            	athletes.get(i).start();
 	            }
 
 	            for (Thread thread : athletes) {
@@ -49,10 +48,11 @@ public class Race {
 	
 	/**
      * Restarts the race by sending an HTTP GET request to the race server.
+     * @param IP The IP address of the race server.
      * @throws Exception If an error occurs during the HTTP request.
      */
-	private static void restartRace() throws Exception {
-		URL urlRestart = new URL ("http://" + IP + "/Carrera100REST/Carrera100/reinicio");
+	private static void restartRace(String IP) throws Exception {
+		URL urlRestart = new URL ("http://" + IP + "/CarreraREST/Carrera100/reinicio");
 		HttpURLConnection connectionRestart = (HttpURLConnection) urlRestart.openConnection();
         connectionRestart.setRequestMethod("GET");
         if (connectionRestart.getResponseCode() != HttpURLConnection.HTTP_OK) {
