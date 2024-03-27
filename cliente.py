@@ -1,4 +1,7 @@
 #-*- coding: utf-8 -*-
+# Autores
+# Sergio Garcia Seco
+# Andres Blazquez Colino
 # implementation of a client to consume RESTful NTP API
 import requests
 import time

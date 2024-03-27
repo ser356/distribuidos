@@ -1,4 +1,7 @@
 #-*- coding: utf-8 -*-
+# Autores
+# Sergio Garcia Seco
+# Andres Blazquez Colino
 # app.py define el servicio NTP 
 # Importación de librerías necesarias (ver requirements.txt)
 from flask import Flask, jsonify, request
