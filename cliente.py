@@ -28,4 +28,5 @@ def query_server(server_url):
     return best_pair
 
 if __name__ == '__main__':
-   	print(query_server("http://nogal.usal.es:5000")) 
+   	print(query_server("http://nogal.usal.es:5000"))  # unsafe, opens a port avoiding ssh wrapping
+ 
